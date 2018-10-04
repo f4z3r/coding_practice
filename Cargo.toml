@@ -2,6 +2,5 @@
 name = "coding_practice"
 version = "0.1.0"
 authors = ["Jakob Beckmann <beckmann_jakob@hotmail.fr>"]
-edition = "2018"
 
 [dependencies]
