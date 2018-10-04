@@ -20,7 +20,7 @@ fn has_unique_chars(string: &str) -> bool {
 #[allow(dead_code)]
 fn has_unique_chars2(string: &str) -> bool {
     assert!(string.is_ascii());
-    let mut seen = vec![false; 256];
+    let mut seen = vec![false; 128];
     for ch in string.chars() {
         let char_code = ch as usize;
         if seen[char_code] { return false }
