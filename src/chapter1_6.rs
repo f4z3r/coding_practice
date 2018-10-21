@@ -2,7 +2,6 @@
 //! image by 90 degrees. Can you do this in place?
 
 /// Iterate through a fourth of the image and rotate by exchanging the 4 pixels that will be rotated.
-#[allow(dead_code)]
 fn rotate(image: &mut Vec<Vec<u32>>) {
     // dimension checking ommited
     let length = image.len();

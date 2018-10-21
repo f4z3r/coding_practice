@@ -1,7 +1,6 @@
 //! Write a method to decide if two strings are anagrams or not.
 
 /// O(n) solution. Strings must be ASCII.
-#[allow(dead_code)]
 fn are_anagrams(string1: &str, string2: &str) -> bool {
     assert!(string1.is_ascii());
     assert!(string2.is_ascii());

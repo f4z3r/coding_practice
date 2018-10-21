@@ -1,7 +1,6 @@
 //! Write an algorithm such that if an element in an MxN matrix is 0, its entire row and column is set to 0.
 
 /// Flag rows and columns then clear data.
-#[allow(dead_code)]
 fn set_zeros(matrix: &mut Vec<Vec<i32>>) {
     // does not check that the dimensions are correct
     let rows = matrix.len();

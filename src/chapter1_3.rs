@@ -8,7 +8,6 @@
 
 /// solution provided in book for O(n^2) not possible in rust as strings are not indexable since they are UTF-8 encoded.
 /// This solution is O(n). Requires ASCII strings.
-#[allow(dead_code)]
 fn remove_dup_chars(string: &mut String) {
     assert!(string.is_ascii());
     let mut seen = vec![false; 128];

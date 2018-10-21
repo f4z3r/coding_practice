@@ -2,7 +2,6 @@
 
 
 /// O(n) time complexity
-#[allow(dead_code)]
 fn replace_spaces(string: &mut String) {
     let original = string.clone();
     *string = String::new();

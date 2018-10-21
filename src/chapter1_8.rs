@@ -4,7 +4,6 @@
 
 
 /// solution presented in book
-#[allow(dead_code)]
 fn is_rotation(str1: &str, str2: &str) -> bool {
     if str1.len() != str2.len() {
         return false

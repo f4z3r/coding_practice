@@ -5,7 +5,6 @@
 /// the string. The function takes no space as the iterator does not copy the characters. It works for UTF-8 encoded
 /// strings. In practice this is not a problem, as real strings with non-repeating characters are usually relatively
 /// short.
-#[allow(dead_code)]
 fn has_unique_chars(string: &str) -> bool {
     for (idx, ch) in string.chars().enumerate() {
         if string[idx+1..].contains(ch) {
@@ -17,7 +16,6 @@ fn has_unique_chars(string: &str) -> bool {
 
 /// O(n) solution. Works only with ASCII character set. Uses extra memory to store which characters have already been
 /// seen.
-#[allow(dead_code)]
 fn has_unique_chars2(string: &str) -> bool {
     assert!(string.is_ascii());
     let mut seen = vec![false; 128];
