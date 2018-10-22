@@ -1,7 +1,20 @@
-/target
-**/*.rs.bk
-Cargo.lock
+/rust/target
+/rust/**/*.rs.bk
+/rust/Cargo.lock
 
 
 # OSX
 .DS_Store
+
+
+/crystal/docs/
+/crystal/lib/
+/crystal/bin/
+/crystal/.shards/
+*.dwarf
+
+.crystal/
+
+# Libraries don't need dependency lock
+# Dependencies will be locked in application that uses them
+/crystal/shard.lock
