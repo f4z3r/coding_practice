@@ -1,0 +1,14 @@
+{
+  "name": "coding_practice",
+  "version": "0.0.1",
+  "description": "Coding practice for js",
+  "repository": "https://github.com/jakobbeckmann/coding_practice",
+  "author": "Jakob Beckmann",
+  "license": "MIT",
+  "scripts": {
+    "test": "yarn jest"
+  },
+  "devDependencies": {
+    "jest": "^23.6.0"
+  }
+}

@@ -13,3 +13,7 @@ matrix:
       rust: stable
       before_script:
         - cd rust
+    - language: node_js
+      node_js: "10"
+      before_script:
+        - cd js
