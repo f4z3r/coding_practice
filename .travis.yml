@@ -17,3 +17,4 @@ matrix:
       node_js: "10"
       before_script:
         - cd js
+        - yarn
