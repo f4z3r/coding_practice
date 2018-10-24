@@ -19,7 +19,6 @@ module CodePractice
         current = current.next
       end
       current.next = node if current # has to be true
-      end
     end
   end
 
@@ -46,7 +45,7 @@ module CodePractice
       while current
         runner = node
         while runner != current   # check ealier duplicates
-          if runner && runner.data == current.data
+          if runner && (runner.data == current.data)
             tmp = current.next
             previous.next = tmp if previous # has to be true
             current = tmp
@@ -55,7 +54,7 @@ module CodePractice
           runner = runner.next if runner  # has to be true
         end
         # update the current pointer
-        if current && runner == current
+        if current && (runner == current)
           previous = current
           current = current.next
         end
