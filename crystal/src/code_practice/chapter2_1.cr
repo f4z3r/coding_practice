@@ -15,13 +15,10 @@ module CodePractice
     def append(data : Int32)
       node = Node.new(data)
       current = self
-      previous = nil
-      while current
-        previous = current
+      while current && current.next
         current = current.next
       end
-      if previous
-        previous.next = node
+      current.next = node if current # has to be true
       end
     end
   end
@@ -29,13 +26,11 @@ module CodePractice
   module Chapter2_1
     def self.delete_dups(node : Node)
       set = Set(Int32).new
-      previous : Node? = nil
+      previous : Node = Node.new(0)   # dummy node
       while node
         if set.includes?(node.data)
           # delete node
-          if previous
-            previous.next = node.next
-          end
+          previous.next = node.next
         else
           set.add(node.data)
           previous = node
@@ -53,16 +48,16 @@ module CodePractice
         while runner != current   # check ealier duplicates
           if runner && runner.data == current.data
             tmp = current.next
-            previous.next = tmp if previous
+            previous.next = tmp if previous # has to be true
             current = tmp
             break
           end
-          runner = runner.next if runner
+          runner = runner.next if runner  # has to be true
         end
         # update the current pointer
-        if runner == current
+        if current && runner == current
           previous = current
-          current = current.next if current
+          current = current.next
         end
       end
     end
