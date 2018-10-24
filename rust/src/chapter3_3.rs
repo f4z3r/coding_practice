@@ -38,6 +38,7 @@ impl<T> SetOfStacks<T> {
             } else {
                 return None;
             }
+            // empty stack at the end of the list
             self.stacks.pop();
         }
     }

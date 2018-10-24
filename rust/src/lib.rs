@@ -9,3 +9,4 @@ mod chapter1_7;
 mod chapter1_8;
 mod chapter3_2;
 mod chapter3_3;
+mod chapter3_4;
