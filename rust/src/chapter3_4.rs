@@ -63,7 +63,7 @@ impl Tower {
     pub fn move_top_to(&mut self, dest: &mut Tower) -> String {
         let disk = self.disks.pop().unwrap();
         dest.add(disk);
-        format!("moving disk {} from tower {} to tower {}", disk, self.index(), dest.index())
+        format!("moving disk {} from tower {} to tower {}\n", disk, self.index(), dest.index())
     }
 
     pub fn move_disks(&mut self, disk_count: usize, dest: &mut Tower, buffer: &mut Tower) -> String {
@@ -86,13 +86,13 @@ mod tests {
     fn test_algo() {
         let mut program = HanoiProgram::new(3);
         let output = program.run();
-        let mut expected = "moving disk 1 from tower 1 to tower 3".to_owned();
-        expected.push_str("moving disk 2 from tower 1 to tower 2");
-        expected.push_str("moving disk 1 from tower 3 to tower 2");
-        expected.push_str("moving disk 3 from tower 1 to tower 3");
-        expected.push_str("moving disk 1 from tower 2 to tower 1");
-        expected.push_str("moving disk 2 from tower 2 to tower 3");
-        expected.push_str("moving disk 1 from tower 1 to tower 3");
+        let mut expected = "moving disk 1 from tower 1 to tower 3\n".to_owned();
+        expected.push_str("moving disk 2 from tower 1 to tower 2\n");
+        expected.push_str("moving disk 1 from tower 3 to tower 2\n");
+        expected.push_str("moving disk 3 from tower 1 to tower 3\n");
+        expected.push_str("moving disk 1 from tower 2 to tower 1\n");
+        expected.push_str("moving disk 2 from tower 2 to tower 3\n");
+        expected.push_str("moving disk 1 from tower 1 to tower 3\n");
         assert_eq!(output, expected);
     }
 }
