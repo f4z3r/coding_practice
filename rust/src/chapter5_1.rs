@@ -8,12 +8,24 @@
 fn set_bits(mut bitstring: u32, mut subset: u32, i: u8, j: u8) -> u32 {
     subset <<= i;
     for idx in i..=j {
-        let bit = 2_u32.pow(idx as u32);
+        let bit = 1_u32 << idx;
         bitstring &= !bit;              // unset bit
         bitstring ^= subset & bit;      // set bit
     }
 
     bitstring
+}
+
+fn set_bits_2(bitstring: u32, subset: u32, i: u8, j: u8) -> u32 {
+    let max = !0_u32;
+    // 1's until position j, then 0's
+    let left = max - ((1_u32 << j) - 1);
+    // 0's until position i, then 0's
+    let right = (1_u32 << i) - 1;
+    // 1's everywhere but on subset
+    let mask = left | right;
+    // clear subset region and then set it
+    (bitstring & mask) | (subset << i)
 }
 
 #[cfg(test)]
@@ -24,5 +36,8 @@ mod tests {
     fn test_algo() {
         assert_eq!(set_bits(0b10000000000, 0b10101, 2, 6), 0b10001010100);
         assert_eq!(set_bits(0b10000001101, 0b10101, 2, 6), 0b10001010101);
+
+        assert_eq!(set_bits_2(0b10000000000, 0b10101, 2, 6), 0b10001010100);
+        assert_eq!(set_bits_2(0b10000001101, 0b10101, 2, 6), 0b10001010101);
     }
 }
