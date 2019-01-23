@@ -18,3 +18,7 @@ matrix:
       before_script:
         - cd js
         - yarn
+    - language: perl6
+      perl6: latest
+      before_script:
+          - cd perl6

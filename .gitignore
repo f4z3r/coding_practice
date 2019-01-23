@@ -3,8 +3,14 @@
 /rust/Cargo.lock
 
 
-# OSX
+# transitory files
 .DS_Store
+.#*
+*.swp
+*.swo
+
+# perl
+.precomp/
 
 
 /crystal/docs/
