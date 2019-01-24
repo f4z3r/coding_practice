@@ -17,3 +17,10 @@ sub remove-dups(Str $str is rw) is export {
     $buf = Buf.new: $buf.kv.cache.map({ $^b unless $^b (elem) $buf[^$^a].Set });
     $str = $buf.decode('ascii');
 }
+
+# aternative solution not using sets
+sub remove-dups-bis(Str $str is rw) is export {
+    my $buf = $str.encode('ascii');
+    $buf = Buf.new: $buf.kv.cache.map({ $^b unless [or] $buf[^$^a].map(* == $^b) });
+    $str = $buf.decode('ascii');
+}
