@@ -24,3 +24,21 @@ sub remove-dups-bis(Str $str is rw) is export {
     $buf = Buf.new: $buf.kv.cache.map({ $^b unless [or] $buf[^$^a].map(* == $^b) });
     $str = $buf.decode('ascii');
 }
+
+# another alternative using constant memory
+sub remove-dups-fast(Str $str is rw) is export {
+    my $buf = Buf.new: $str.encode('ascii');
+    for $buf.values -> $ch {
+        state $idx = 0;
+        state @seen = False xx 128;
+        next if @seen[$ch];
+        @seen[$ch] = True;
+        $buf[$idx++] = $ch;
+        LAST {
+            $buf.pop for $idx..^$buf.elems;
+        }
+    }
+    $str = $buf.decode('ascii');
+}
+        
+    
