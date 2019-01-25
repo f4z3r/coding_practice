@@ -19,11 +19,7 @@ fn are_anagrams(string1: &str, string2: &str) -> bool {
         }
     }
 
-    if char_count.iter().any(|&c| c != 0) {
-        return false;
-    }
-
-    true
+    !char_count.iter().any(|&c| c != 0)
 }
 
 #[cfg(test)]
