@@ -22,3 +22,14 @@ matrix:
       perl6: latest
       before_script:
           - cd perl6
+    - name: nim
+      sudo: required
+      services:
+        - docker
+      before_install: 
+        - docker pull nimlang/nim
+      script:
+        - cd nim
+        - docker run nimlang/nim nim --version
+        - docker run -v "$(pwd):/project" -w /project nimlang/nim sh -c "nimble install -dy && nimble test"
+

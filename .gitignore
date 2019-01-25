@@ -12,6 +12,11 @@
 # perl
 .precomp/
 
+# nim
+/nim/tests/*
+!/nim/**/*.nim
+!/nim/**/*.nims
+!/nim/**/*.nimble
 
 /crystal/docs/
 /crystal/lib/
