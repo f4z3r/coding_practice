@@ -11,5 +11,5 @@ sub are-anagrams(Str $str1, Str $str2) returns Bool is export {
         @seen[$ch.ord]--;
         return False if @seen[$ch.ord] < 0;
     }
-    not [or] @seen;
+    none(@seen).so;
 }
