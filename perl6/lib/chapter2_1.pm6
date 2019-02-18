@@ -6,7 +6,6 @@ class Node is export {
     has Node $.next is rw;
 
     method from_list(Node:U: *@elems where { .elems > 1 }) returns Node {
-        return unless @elems.so;
         my $head = Node.new(data => @elems[0]);
         my $curr = $head;
         for @elems[1..*] -> $data {
