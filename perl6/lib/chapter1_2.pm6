@@ -1,7 +1,7 @@
 #!/usr/bin/env perl6
 
-# Write code to reverse a C-style string. (C-string means that "abcd"
-# is represented as five characters, including the null character.)
+#= Write code to reverse a C-style string. (C-string means that "abcd" is represented as five
+#= characters, including the null character.)
 
 sub rev(Str $str is rw) is export {
     # simlate c-string
@@ -21,4 +21,3 @@ sub rev(Str $str is rw) is export {
     $cs.pop;    # remove trailing \0
     $str = $cs.decode('ascii');
 }
-

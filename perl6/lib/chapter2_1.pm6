@@ -1,5 +1,6 @@
 #!/usr/bin/env perl6
 
+#| simple node implementation for the linked list questions.
 class Node is export {
     has Int $.data is rw is required;
     has Node $.next is rw;
@@ -19,6 +20,11 @@ class Node is export {
         (self, *.next ... !*.next).map: *.data;
     }
 }
+
+#= Write code to remove duplicates from an unsorted linked list.
+#=
+#= FOLLOW UP
+#= How would you solve this problem if a temporary buffer is not allowed?
 
 #| remove duplicate values in the linked list.
 sub remove-dups(Node $node) is export {

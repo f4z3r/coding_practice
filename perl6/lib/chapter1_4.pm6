@@ -1,6 +1,6 @@
 #!/usr/bin/env perl6
 
-# Write a method to decide if two strings are anagrams or not.
+#= Write a method to decide if two strings are anagrams or not.
 
 sub are-anagrams(Str $str1, Str $str2) returns Bool is export {
     my @seen = 0 xx 128;

@@ -1,8 +1,8 @@
 #!/usr/bin/env perl6
 
 
-# Implement an algorithm to determine if a string has all unique characters What
-# if you can not use additional data structures?
+#= Implement an algorithm to determine if a string has all unique characters What if you can not
+#= use additional data structures?
 
 # Using an array and supporting only ASCII strings.
 sub has-unique-chars(Str $str) returns Bool is export {

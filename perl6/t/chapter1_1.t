@@ -4,22 +4,34 @@ use lib 'lib';
 
 use chapter1_1;
 
-plan 14;
+plan 2;
 
-ok has-unique-chars("abcdefghijk"), "fast 1 works";
-ok has-unique-chars("abcpkljse"), "fast 2 works";
-nok has-unique-chars("abcabc"), "fast 3 works";
-nok has-unique-chars("aaopffdvfdf"), "fast 4 works";
-nok has-unique-chars("ploidskl"), "fast 5 works";
-ok has-unique-chars("qwertyuiopasdfghjklzxcvbnm,./[];'\\\""), "fast 6 works";
-nok has-unique-chars("?qwertyuiopasdfghjklzxcvbnm,./[]?;'\\\""), "fast 7 works";
+subtest "fast solution", {
+    plan 7;
 
-ok has-unique-chars-slow("abcdefghijk"), "slow 1 works";
-ok has-unique-chars-slow("abcpkljse"), "slow 2 works";
-nok has-unique-chars-slow("abcabc"), "slow 3 works";
-nok has-unique-chars-slow("aaopffdvfdf"), "slow 4 works";
-nok has-unique-chars-slow("ploidskl"), "slow 5 works";
-ok has-unique-chars-slow("qwertyuiopasdfghjklzxcvbnm,./[];'\\\""), "slow 6 works";
-nok has-unique-chars-slow("?qwertyuiopasdfghjklzxcvbnm,./[]?;'\\\""), "slow 7 works";
+    ok has-unique-chars("abcdefghijk");
+    ok has-unique-chars("abcpkljse");
+    nok has-unique-chars("abcabc");
+    nok has-unique-chars("aaopffdvfdf");
+    nok has-unique-chars("ploidskl");
+    ok has-unique-chars("qwertyuiopasdfghjklzxcvbnm,./[];'\\\"");
+    nok has-unique-chars("?qwertyuiopasdfghjklzxcvbnm,./[]?;'\\\"");
+
+    done-testing;
+}
+
+subtest "slow solution", {
+    plan 7;
+
+    ok has-unique-chars-slow("abcdefghijk");
+    ok has-unique-chars-slow("abcpkljse");
+    nok has-unique-chars-slow("abcabc");
+    nok has-unique-chars-slow("aaopffdvfdf");
+    nok has-unique-chars-slow("ploidskl");
+    ok has-unique-chars-slow("qwertyuiopasdfghjklzxcvbnm,./[];'\\\"");
+    nok has-unique-chars-slow("?qwertyuiopasdfghjklzxcvbnm,./[]?;'\\\"");
+
+    done-testing;
+}
 
 done-testing;

@@ -1,8 +1,8 @@
 #!/usr/bin/env perl6
 
+#= Write an algorithm such that if an element of an MxN matrix is 0, its entire row and column is set
+#= to 0.
 
-# Write an algorithm such that if an element of an MxN matrix is 0, its entire row and column is set
-# to 0.
 sub set_zero(@matrix) is export {
   my @zero_rows = False xx @matrix.elems;
   my @zero_columns = False xx @matrix[0].elems;
@@ -20,4 +20,3 @@ sub set_zero(@matrix) is export {
     }
   }
 }
-

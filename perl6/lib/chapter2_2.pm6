@@ -1,5 +1,7 @@
 #!/usr/bin/env perl6
 
+#= Implement an algorithm to find the nth to last element of a singly linked list.
+
 use chapter2_1;
 
 #| find the nth to last node in the list.
