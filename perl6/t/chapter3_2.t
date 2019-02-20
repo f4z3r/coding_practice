@@ -23,7 +23,7 @@ is $stack.pop, 1;
 is $stack.min, 3;
 is $stack.pop, 3;
 is $stack.pop, 5;
-throws-like { $stack.pop }, X::AdHoc;
-throws-like { $stack.min }, X::AdHoc;
+throws-like { $stack.pop }, Exception, message => "stack is empty";
+throws-like { $stack.min }, Exception, message => "stack is empty";
 
 done-testing;

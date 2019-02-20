@@ -11,7 +11,8 @@ my $list = Node.from_list: 1, 2, 3, 4, 5;
 delete-node($list.next.next);   # delete node 3
 is $list.to_list, (1, 2, 4, 5);
 
-throws-like delete-node($list.next.next.next), X::AdHoc;
+throws-like delete-node($list.next.next.next), Exception,
+     message => "cannot be performed on last node";
 
 delete-node($list);
 is $list.to_list, (2, 4, 5);

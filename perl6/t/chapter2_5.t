@@ -41,7 +41,7 @@ subtest "find-loop-entry", {
     is find-loop-entry($list).data, 2;
 
     $list = Node.from_list: 1, 2, 3, 4, 5;
-    throws-like find-loop-entry($list), X::AdHoc;
+    throws-like find-loop-entry($list), Exception, message => "no loop";
 
     done-testing;
 }
