@@ -17,7 +17,7 @@ my @expected = [[1, 0, 1, 1],
                 [1, 0, 1, 1],
                 [1, 0, 1, 1]];
 set_zero(@matrix);
-is @matrix, @expected;
+is-deeply @matrix, @expected;
 
 
 @matrix = [[1, 1, 1, 1],
@@ -33,7 +33,7 @@ is @matrix, @expected;
              [0, 0, 0, 0],
              [0, 0, 0, 1]];
 set_zero(@matrix);
-is @matrix, @expected;
+is-deeply @matrix, @expected;
 
 @matrix = [[1, 1, 1, 1],
            [1, 1, 1, 1],
@@ -48,6 +48,6 @@ is @matrix, @expected;
              [1, 1, 1, 1],
              [1, 1, 1, 1]];
 set_zero(@matrix);
-is @matrix, @expected;
+is-deeply @matrix, @expected;
 
 done-testing;

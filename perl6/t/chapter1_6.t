@@ -20,7 +20,7 @@ is @matrix, @expected;
 @matrix = [[1]];
 @expected = [[1]];
 rotate(@matrix);
-is @matrix, @expected;
+is-deeply @matrix, @expected;
 
 @matrix = [[1, 2, 3],
            [4, 5, 6],
@@ -29,11 +29,11 @@ is @matrix, @expected;
              [8, 5, 2],
              [9, 6, 3]];
 rotate(@matrix);
-is @matrix, @expected;
+is-deeply @matrix, @expected;
 
 @matrix = [[]];
 @expected = [[]];
 rotate(@matrix);
-is @matrix, @expected;
+is-deeply @matrix, @expected;
 
 done-testing;

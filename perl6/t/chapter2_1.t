@@ -25,15 +25,15 @@ subtest "remove-dups", {
     my $list = Node.from_list: 1, 2, 2, 5, 4, 3, 3, 1;
     remove-dups($list);
     isa-ok $list, Node;
-    is $list.to_list, (1, 2, 5, 4, 3);
+    is-deeply $list.to_list, (1, 2, 5, 4, 3);
 
     $list = Node.new(data => 5);
     remove-dups($list);
-    is $list.to_list, (5,);
+    is-deeply $list.to_list, (5,);
 
     $list = Node.from_list: 0 xx 10;
     remove-dups($list);
-    is $list.to_list, (0,);
+    is-deeply $list.to_list, (0,);
 
     done-testing;
 }
@@ -44,15 +44,15 @@ subtest "slow-remove-dups", {
     my $list = Node.from_list: 1, 2, 2, 5, 4, 3, 3, 1;
     slow-remove-dups($list);
     isa-ok $list, Node;
-    is $list.to_list, (1, 2, 5, 4, 3);
+    is-deeply $list.to_list, (1, 2, 5, 4, 3);
 
     $list = Node.new(data => 5);
     slow-remove-dups($list);
-    is $list.to_list, (5,);
+    is-deeply $list.to_list, (5,);
 
     $list = Node.from_list: 0 xx 10;
     slow-remove-dups($list);
-    is $list.to_list, (0,);
+    is-deeply $list.to_list, (0,);
 }
 
 done-testing;
