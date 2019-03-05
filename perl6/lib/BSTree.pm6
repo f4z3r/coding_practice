@@ -21,12 +21,12 @@ my class Node {
     method search(Node:D: Int $key) returns Int {
         given $key <=> $!key {
             when Order::Less {
-                fail "not found" unless %!children<left>.defined;
-                %!children<left>.search($key);
+                fail "not found" unless self.left.defined;
+                self.left.search($key);
             }
             when Order::More {
-                fail "not found" unless %!children<right>.defined;
-                %!children<right>.search($key);
+                fail "not found" unless self.right.defined;
+                self.right.search($key);
             }
             when Order::Same {
                 $!value.defined ?? $!value !! 1;
