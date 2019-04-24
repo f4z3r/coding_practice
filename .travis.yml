@@ -19,7 +19,7 @@ matrix:
         - cd js
         - yarn
     - language: perl6
-      perl6: "2018.10"
+      perl6: "2019.03"
       before_script:
           - cd perl6
     - name: nim
