@@ -31,7 +31,7 @@ defmodule Crack.Chapter1_1 do
 
   defp has_duplicate?(str) do
     str
-    |> String.codepoints
+    |> String.graphemes
     |> Enum.sort
     |> has_adjacent_duplicates?
   end

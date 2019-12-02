@@ -13,4 +13,8 @@ defmodule Chapter1_1Test do
   test "negative example" do
     assert Crack.Chapter1_1.start "abcdefg?!-"
   end
+
+  test "supports graphemes" do
+    assert Crack.Chapter1_1.start "áéíć"
+  end
 end
