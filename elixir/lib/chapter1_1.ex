@@ -6,7 +6,6 @@ defmodule Crack.Chapter1_1 do
   What if you cannot use additional data structures?
   """
 
-
   @doc """
   Check string for uniqueness of all characters.
 
@@ -31,9 +30,9 @@ defmodule Crack.Chapter1_1 do
 
   defp has_duplicate?(str) do
     str
-    |> String.graphemes
-    |> Enum.sort
-    |> has_adjacent_duplicates?
+    |> String.graphemes()
+    |> Enum.sort()
+    |> has_adjacent_duplicates?()
   end
 
   defp has_adjacent_duplicates?([]), do: false

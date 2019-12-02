@@ -23,14 +23,16 @@ defmodule Crack.Chapter1_2 do
 
   """
   def start(""), do: ""
+
   def start(str) do
     str
-    |> String.graphemes
-    |> reverse
-    |> List.to_string
+    |> String.graphemes()
+    |> reverse()
+    |> List.to_string()
   end
 
   defp reverse([head]), do: [head]
+
   defp reverse([head | rest]) do
     reverse(rest) ++ [head]
   end

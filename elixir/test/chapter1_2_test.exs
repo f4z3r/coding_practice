@@ -3,14 +3,14 @@ defmodule Chapter1_2Test do
   doctest Crack.Chapter1_2
 
   test "works on empty string" do
-    assert "" == Crack.Chapter1_2.start ""
+    assert Crack.Chapter1_2.start("") == ""
   end
 
   test "test on simple string" do
-    assert "abc" == Crack.Chapter1_2.start "cba"
+    assert Crack.Chapter1_2.start("cba") == "abc"
   end
 
   test "supports graphemes" do
-    assert "ábè" == Crack.Chapter1_2.start "èbá"
+    assert Crack.Chapter1_2.start("èbá") == "ábè"
   end
 end
