@@ -5,14 +5,14 @@ branches:
 
 matrix:
   include:
-    - language: crystal
-      crystal: latest
-      before_script:
-        - cd crystal
     - language: rust
       rust: stable
       before_script:
         - cd rust
+    - language: elixir
+      elixir: "1.9.2"
+      before_install:
+        - cd elixir
     - language: node_js
       node_js: "10"
       before_script:
@@ -26,10 +26,9 @@ matrix:
       sudo: required
       services:
         - docker
-      before_install: 
+      before_install:
         - docker pull nimlang/nim
       script:
         - cd nim
         - docker run nimlang/nim nim --version
         - docker run -v "$(pwd):/project" -w /project nimlang/nim sh -c "nimble install -dy && nimble test"
-
