@@ -32,6 +32,7 @@ defmodule Crack.Chapter1_5 do
   end
 
   defp replace_spaces([]), do: []
+
   defp replace_spaces([head | tail]) do
     case head do
       " " -> ["%", "2", "0" | replace_spaces(tail)]

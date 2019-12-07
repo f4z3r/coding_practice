@@ -25,8 +25,8 @@ defmodule Crack.Chapter1_4 do
 
   """
   def start(str1, str2) when is_binary(str1) and is_binary(str2) do
-    chars_1 = str1 |> String.graphemes |> Enum.sort
-    chars_2 = str2 |> String.graphemes |> Enum.sort
+    chars_1 = str1 |> String.graphemes() |> Enum.sort()
+    chars_2 = str2 |> String.graphemes() |> Enum.sort()
     chars_1 === chars_2
   end
 end
