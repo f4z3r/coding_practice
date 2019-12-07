@@ -24,19 +24,14 @@ defmodule Crack.Chapter1_5 do
       "https://github.com/jakobbeckmann/some%20windows%20file%20lol"
 
   """
-  def start(str) when is_binary(str) do
-    str
-    |> String.graphemes()
-    |> replace_spaces()
-    |> String.Chars.to_string()
-  end
+  def start(str) when is_binary(str), do: replace_spaces(str)
 
-  defp replace_spaces([]), do: []
+  defp replace_spaces(<<>>), do: <<>>
 
-  defp replace_spaces([head | tail]) do
+  defp replace_spaces(<<head::utf8, tail::binary>>) do
     case head do
-      " " -> ["%", "2", "0" | replace_spaces(tail)]
-      _ -> [head | replace_spaces(tail)]
+      ?\s -> <<?%, ?2, ?0::utf8, replace_spaces(tail)::binary>>
+      _ -> <<head::utf8, replace_spaces(tail)::binary>>
     end
   end
 end

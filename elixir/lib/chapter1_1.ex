@@ -27,7 +27,7 @@ defmodule Crack.Chapter1_1 do
   """
   def start(""), do: true
 
-  def start(str), do: not has_duplicate?(str)
+  def start(str) when is_binary(str), do: not has_duplicate?(str)
 
   defp has_duplicate?(str) do
     str

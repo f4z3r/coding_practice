@@ -24,16 +24,11 @@ defmodule Crack.Chapter1_2 do
   """
   def start(""), do: ""
 
-  def start(str) do
-    str
-    |> String.graphemes()
-    |> reverse()
-    |> List.to_string()
-  end
+  def start(str) when is_binary(str), do: reverse(str)
 
-  defp reverse([head]), do: [head]
+  defp reverse(<<>>), do: <<>>
 
-  defp reverse([head | rest]) do
-    reverse(rest) ++ [head]
+  defp reverse(<<head::utf8, tail::binary>>) do
+    <<reverse(tail)::binary, head::utf8>>
   end
 end

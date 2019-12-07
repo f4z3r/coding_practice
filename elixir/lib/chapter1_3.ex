@@ -29,24 +29,30 @@ defmodule Crack.Chapter1_3 do
   """
   def start(""), do: ""
 
-  def start(str) do
-    str
-    |> String.graphemes()
-    |> remove_dups_from(String.at(str, 0), [])
-    |> List.to_string()
+  def start(str) when is_binary(str) do
+    <<head::utf8, _::binary>> = str
+    remove_dups_from(str, head, <<>>)
   end
 
-  defp remove_dups_from([], char, beginning) do
-    case char in beginning do
-      true -> beginning
-      false -> beginning ++ [char]
+  defp remove_dups_from(<<>>, char, beginning) do
+    if contains?(beginning, char) do
+      beginning
+    else
+      <<beginning::binary, char::utf8>>
     end
   end
 
-  defp remove_dups_from([head | tail], char, beginning) do
-    case char in beginning do
-      true -> remove_dups_from(tail, head, beginning)
-      false -> remove_dups_from(tail, head, beginning ++ [char])
+  defp remove_dups_from(<<head::utf8, tail::binary>>, char, beginning) do
+    if contains?(beginning, char) do
+      remove_dups_from(tail, head, beginning)
+    else
+      remove_dups_from(tail, head, <<beginning::binary, char::utf8>>)
     end
   end
+
+  defp contains?(<<>>, _), do: false
+
+  defp contains?(<<head::utf8, _::binary>>, head), do: true
+
+  defp contains?(<<_::utf8, tail::binary>>, char), do: contains?(tail, char)
 end
