@@ -36,6 +36,6 @@ defmodule Crack.Chapter1_1 do
   end
 
   defp has_adjacent_duplicates?([]), do: false
-  defp has_adjacent_duplicates?([a | [a | _]]), do: true
+  defp has_adjacent_duplicates?([a, a | _]), do: true
   defp has_adjacent_duplicates?([_ | tail]), do: has_adjacent_duplicates?(tail)
 end
