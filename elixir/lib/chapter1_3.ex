@@ -14,17 +14,17 @@ defmodule Crack.Chapter1_3 do
   Remove duplicate characters of a string while only keeping the first
   occurence.
 
-  iex> Crack.Chapter1_3.start(":")
-  ":"
+      iex> Crack.Chapter1_3.start(":")
+      ":"
 
-  iex> Crack.Chapter1_3.start("abcde")
-  "abcde"
+      iex> Crack.Chapter1_3.start("abcde")
+      "abcde"
 
-  iex> Crack.Chapter1_3.start("abababababaa")
-  "ab"
+      iex> Crack.Chapter1_3.start("abababababaa")
+      "ab"
 
-  iex> Crack.Chapter1_3.start("abacccdddeabcad")
-  "abcde"
+      iex> Crack.Chapter1_3.start("abacccdddeabcad")
+      "abcde"
 
   """
   def start(""), do: ""
