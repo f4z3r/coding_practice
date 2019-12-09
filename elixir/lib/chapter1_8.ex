@@ -23,10 +23,17 @@ defmodule Crack.Chapter1_8 do
        iex> Crack.Chapter1_8.start("dog", "cat")
        false
 
+       iex> Crack.Chapter1_8.start("catcat", "cat")
+       false
+
   """
   def start(str1, str2) when is_binary(str1) and is_binary(str2) do
-    is_substring? = &String.contains?/2
-    concat = str1 <> str1
-    is_substring?.(concat, str2)
+    if String.length(str1) === String.length(str2) do
+      is_substring? = &String.contains?/2
+      concat = str1 <> str1
+      is_substring?.(concat, str2)
+    else
+      false
+    end
   end
 end
