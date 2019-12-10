@@ -9,4 +9,5 @@ defmodule DocTest do
   doctest Crack.Chapter1_6
   doctest Crack.Chapter1_7
   doctest Crack.Chapter1_8
+  doctest Crack.Chapter2_1
 end
