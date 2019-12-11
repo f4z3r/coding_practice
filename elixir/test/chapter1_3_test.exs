@@ -1,4 +1,4 @@
-defmodule Crack.Chapter1_3Test do
+defmodule Chapter1_3Test do
   use ExUnit.Case
   use ExUnitProperties
 
