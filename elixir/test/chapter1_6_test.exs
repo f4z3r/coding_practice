@@ -5,7 +5,7 @@ defmodule Chapter1_6Test do
   describe "matrix swap algorithm" do
     property "should preserve the size of the matrix" do
       check all(
-              n <- StreamData.integer(0..100),
+              n <- StreamData.positive_integer(),
               matrix <-
                 StreamData.integer()
                 |> StreamData.list_of(length: n)

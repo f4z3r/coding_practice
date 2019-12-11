@@ -5,8 +5,8 @@ defmodule Chapter1_7Test do
   describe "matrix zeroing algorithm" do
     property "should preserve the size of the matrix" do
       check all(
-              rows <- StreamData.integer(1..100),
-              cols <- StreamData.integer(1..100),
+              rows <- StreamData.positive_integer(),
+              cols <- StreamData.positive_integer(),
               matrix <-
                 StreamData.integer()
                 |> StreamData.list_of(length: cols)
