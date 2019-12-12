@@ -9,10 +9,9 @@ defmodule Crack.Chapter2_1 do
   """
 
   @doc """
-  Removes duplicates from a sorted linked list.
+  Removes duplicates from an unsorted linked list.
 
-      iex> list = Enum.sort([1, 2, 3, 4, 3, 2, 5])
-      [1, 2, 2, 3, 3, 4, 5]
+      iex> list = [1, 2, 3, 4, 3, 2, 5]
       iex> Crack.Chapter2_1.start(list)
       [1, 2, 3, 4, 5]
 
@@ -22,21 +21,21 @@ defmodule Crack.Chapter2_1 do
       iex> Crack.Chapter2_1.start([1, 1, 1, 1])
       [1]
 
-      iex> Crack.Chapter2_1.start([1, 2, 3, 4])
-      [1, 2, 3, 4]
+      iex> Crack.Chapter2_1.start([1, 4, 3, 2])
+      [1, 4, 3, 2]
 
   """
   def start(list) do
     remove_dups(list, [])
   end
 
-  defp remove_dups([h, h | tail], acc) do
-    remove_dups([h | tail], acc)
-  end
-
   defp remove_dups([h | tail], acc) do
-    remove_dups(tail, acc ++ [h])
+    if Enum.member?(acc, h) do
+      remove_dups(tail, acc)
+    else
+      remove_dups(tail, [h | acc])
+    end
   end
 
-  defp remove_dups([], acc), do: acc
+  defp remove_dups([], acc), do: Enum.reverse(acc)
 end
