@@ -1,10 +1,30 @@
+---
+os: linux
 dist: trusty
 branches:
   only:
     - master
 
-matrix:
+# Caching stack builds for haskell
+cache:
+  directories:
+    - $HOME/.stack
+
+jobs:
   include:
+    - language: haskell
+      before_install:
+        - mkdir -p ~/.local/bin
+        - export PATH=$HOME/.local/bin:$PATH
+        - travis_retry curl -L
+          https://get.haskellstack.org/stable/linux-x86_64.tar.gz |
+          tar xz --wildcards --strip-components=1 -C ~/.local/bin '*/stack'
+      install:
+        - echo "no install required"
+      before_script:
+        - cd haskell
+      script:
+        - stack --no-terminal --skip-ghc-check test
     - language: rust
       rust: stable
       before_script:
@@ -14,16 +34,15 @@ matrix:
       before_install:
         - cd elixir
     - language: node_js
-      node_js: "10"
       before_script:
         - cd js
         - yarn
+      node_js: "10"
     - language: perl6
-      perl6: "2019.03"
       before_script:
-          - cd perl6
+        - cd perl6
+      perl6: "2019.03"
     - name: nim
-      sudo: required
       services:
         - docker
       before_install:
@@ -31,4 +50,5 @@ matrix:
       script:
         - cd nim
         - docker run nimlang/nim nim --version
-        - docker run -v "$(pwd):/project" -w /project nimlang/nim sh -c "nimble install -dy && nimble test"
+        - docker run -v "$(pwd):/project" -w /project nimlang/nim sh -c
+          "nimble install -dy && nimble test"
