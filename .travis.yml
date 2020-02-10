@@ -33,6 +33,12 @@ jobs:
       elixir: "1.9.2"
       before_install:
         - cd elixir
+    - language: perl
+      before_script:
+        - cd perl
+      perl: "5.28"
+      script: prove -re perl test
+      install: echo "no install required"
     - language: node_js
       before_script:
         - cd js
