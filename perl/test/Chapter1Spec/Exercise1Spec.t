@@ -5,7 +5,7 @@ use warnings;
 
 use lib "lib";
 
-use Test::More tests => 8;
+use Test::More tests => 12;
 
 use Chapter1::Exercise1;
 
@@ -18,3 +18,8 @@ ok is_unique_no_array "helo";
 ok is_unique_no_array "";
 ok ! is_unique_no_array "hello";
 ok ! is_unique_no_array "aba";
+
+ok is_unique_functional "helo";
+ok is_unique_functional "";
+ok ! is_unique_functional "hello";
+ok ! is_unique_functional "aba";
