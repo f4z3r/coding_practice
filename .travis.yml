@@ -29,6 +29,10 @@ jobs:
       rust: stable
       before_script:
         - cd rust
+    - language: julia
+      julia: 1.4
+      before_script:
+        - cd julia
     - language: elixir
       elixir: "1.9.2"
       before_install:

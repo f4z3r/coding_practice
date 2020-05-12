@@ -1,0 +1,7 @@
+name = "julia"
+uuid = "3fda3e42-b9e0-453b-a1ae-b3251a381b2b"
+authors = ["Jakob Beckmann <beckmann_jakob@hotmail.fr>"]
+version = "0.1.0"
+
+[deps]
+Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
