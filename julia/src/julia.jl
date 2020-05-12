@@ -1,10 +1,5 @@
 module julia
-export hello
 
-"""
-    hello(who::String)
+include("julia/chapter1.jl")
 
-Return "Hello, `who`".
-"""
-hello(who::String) = "Hello, $who"
-end # module
+end
