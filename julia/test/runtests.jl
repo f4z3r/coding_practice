@@ -42,4 +42,12 @@ using Test
     @test remove_dup_chars_custom("ababababababaaa") == "ab"
     @test remove_dup_chars_custom("aaaaaabbbbbb") == "ab"
   end
+
+  @testset "Exercise 4" begin
+    using julia.Chapter1.Ex4
+    @test are_anagrams("aabb", "abab")
+    @test are_anagrams("beckmann", "nanbeckm")
+    @test !are_anagrams("beckmann", "nabeckm")
+    @test !are_anagrams("ajkob", "ajkop")
+  end
 end
