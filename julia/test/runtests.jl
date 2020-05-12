@@ -50,4 +50,13 @@ using Test
     @test !are_anagrams("beckmann", "nabeckm")
     @test !are_anagrams("ajkob", "ajkop")
   end
+
+  @testset "Exercise 5" begin
+    using julia.Chapter1.Ex5
+    @test replace_spaces("hello world") == "hello%20world"
+    @test replace_spaces("hello") == "hello"
+    @test replace_spaces("farm ville sucks") == "farm%20ville%20sucks"
+    @test replace_spaces("end ") == "end%20"
+    @test replace_spaces(" start") == "%20start"
+  end
 end
