@@ -19,4 +19,27 @@ using Test
     @test has_unique_chars_fast("qwertyuiopasdfghjklzxcvbnm,./[];'\\\"")
     @test !has_unique_chars_fast("?qwertyuiopasdfghjklzxcvbnm,./[]?;'\\\"")
   end
+
+  @testset "Exercise 2" begin
+    using julia.Chapter1.Ex2
+    @test reverse_c_str("hello0") == "olleh0"
+    @test reverse_c_str("asfsa0") == "asfsa0"
+    @test reverse_c_str("0") == "0"
+    @test reverse_c_str("this is a sentence!0") == "!ecnetnes a si siht0"
+  end
+
+  @testset "Exercise 3" begin
+    using julia.Chapter1.Ex3
+    @test remove_dup_chars("aaaaaaaa") == "a"
+    @test remove_dup_chars("abcd") == "abcd"
+    @test remove_dup_chars("") == ""
+    @test remove_dup_chars("ababababababaaa") == "ab"
+    @test remove_dup_chars("aaaaaabbbbbb") == "ab"
+
+    @test remove_dup_chars_custom("aaaaaaaa") == "a"
+    @test remove_dup_chars_custom("abcd") == "abcd"
+    @test remove_dup_chars_custom("") == ""
+    @test remove_dup_chars_custom("ababababababaaa") == "ab"
+    @test remove_dup_chars_custom("aaaaaabbbbbb") == "ab"
+  end
 end
