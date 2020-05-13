@@ -59,4 +59,37 @@ using Test
     @test replace_spaces("end ") == "end%20"
     @test replace_spaces(" start") == "%20start"
   end
+
+  @testset "Exercise 6" begin
+    using julia.Chapter1.Ex6
+    matrix = [ 1  2  3  4;
+               5  6  7  8;
+               9 10 11 12;
+              13 14 15 16]
+    rotate!(matrix)
+    @test matrix == [13  9  5  1;
+                     14 10  6  2;
+                     15 11  7  3;
+                     16 12  8  4]
+
+    matrix = [1 2 3;
+              4 5 6;
+              7 8 9]
+    rotate!(matrix)
+    @test matrix == [7 4 1;
+                     8 5 2;
+                     9 6 3]
+
+    matrix = [1 2 2 2 1;
+              1 2 2 2 1;
+              1 2 2 2 1;
+              1 2 2 2 1;
+              1 2 2 2 1]
+    rotate!(matrix)
+    @test matrix == [1 1 1 1 1;
+                     2 2 2 2 2;
+                     2 2 2 2 2;
+                     2 2 2 2 2;
+                     1 1 1 1 1]
+  end
 end
