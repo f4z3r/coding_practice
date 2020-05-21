@@ -1,0 +1,3 @@
+(library
+ (public_name coding_practice)
+ (name coding_practice))
